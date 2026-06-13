@@ -20,6 +20,7 @@ var stateStrs:Array = [
 ]
 
 
+#TODO: remove values
 var gamesList:Array = [1,1,1,1,1]
 
 
@@ -81,7 +82,7 @@ func _process(delta: float) -> void:
 			gameState_SelectedGame = gamesList.pick_random()
 			gameState_State = state.gameTransitionIn
 			gameState_transitionTimer = (timerReset * difficultyLevel)
-#			gameState_SelectedGame.preload()
+#			gameState_SelectedGame.load()
 		state.gameTransitionIn:
 			gameState_transitionTimer -= delta
 			if(gameState_transitionTimer <= 0.0):
