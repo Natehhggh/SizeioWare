@@ -43,6 +43,7 @@ animations = [{
 script = ExtResource("1_qm8bt")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=532037284]
+unique_name_in_owner = true
 zoom = Vector2(2, 2)
 
 [node name="Player" type="Node2D" parent="." unique_id=268384406]

@@ -92,10 +92,27 @@ func _process(delta: float) -> void:
 			gameState_PlayerTookDamage = false
 			
 			
-			gameState_PlayerTookDamage = true
-			gameState_PlayerHealth -= 1
-			gameState_transitionTimer = (timerReset * difficultyLevel)
-			gameState_State = state.gameTransitionOut
+			#TODO: no games,
+			#var result:Global.MiniGameUpdateResult =  (TODO-ref).GameUpdate(delta, deltaAnim,gameState_GlobalPause, %Camera2D)
+			#pretend we actually played a game and lost
+			var result:Global.MiniGameUpdateResult = Global.MiniGameUpdateResult.End_PlayerLose
+			
+			
+			
+			if(result == Global.MiniGameUpdateResult.End_PlayerWin):
+				gameState_PlayerScore+=1
+			if(result == Global.MiniGameUpdateResult.End_PlayerLose):
+				gameState_PlayerTookDamage = true
+				gameState_PlayerHealth -= 1
+				gameState_transitionTimer = (timerReset * difficultyLevel)
+				gameState_State = state.gameTransitionOut
+				
+			if(result == Global.MiniGameUpdateResult.End_Error):
+				printerr("fix yo shit")
+				gameState_transitionTimer = (timerReset * difficultyLevel)
+				gameState_State = state.gameTransitionOut
+			
+				
 		state.gameTransitionOut:
 			gameState_transitionTimer -= delta
 			if(gameState_PlayerTookDamage):
