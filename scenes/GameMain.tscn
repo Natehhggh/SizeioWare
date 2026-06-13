@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://cl16wmkpwpca4"]
+
+[ext_resource type="Script" uid="uid://ca2j45jc74wsh" path="res://game_main.gd" id="1_qm8bt"]
+[ext_resource type="Texture2D" uid="uid://b0aar4la084uf" path="res://assets/Placeholder Character16x32 All Animations-Sheet.png" id="2_bo248"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dv2l7"]
+atlas = ExtResource("2_bo248")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aj444"]
+atlas = ExtResource("2_bo248")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxm02"]
+atlas = ExtResource("2_bo248")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_womm6"]
+atlas = ExtResource("2_bo248")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iur3i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dv2l7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aj444")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxm02")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_womm6")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="GameMain" type="Node" unique_id=1216771427]
+script = ExtResource("1_qm8bt")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=532037284]
+zoom = Vector2(2, 2)
+
+[node name="Player" type="Node2D" parent="." unique_id=268384406]
+unique_name_in_owner = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=1185094016]
+sprite_frames = SubResource("SpriteFrames_iur3i")
+animation = &"Idle"
+
+[node name="gamePos" type="Node2D" parent="." unique_id=1745570748]
+
+[node name="camReturnPos" type="Node2D" parent="." unique_id=1207572561]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1771501077]
+follow_viewport_enabled = true
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=1702066217]
+anchors_preset = -1
+anchor_right = 0.052951388
+anchor_bottom = 0.07716049
+offset_left = -217.0
+offset_top = -111.0
+offset_right = -177.0
+offset_bottom = -101.0
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer" unique_id=1271825648]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 5
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/PanelContainer/MarginContainer" unique_id=1374629514]
+layout_mode = 2
+columns = 2
+
+[node name="lbl_health_text" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer" unique_id=533005694]
+layout_mode = 2
+text = "Health:"
+
+[node name="lbl_health_val" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer" unique_id=1102610817]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="lbl_timer_text" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer" unique_id=785968913]
+layout_mode = 2
+text = "Timer:"
+
+[node name="lbl_timer_val" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer" unique_id=80494398]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="lbl_gamestate_text" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer" unique_id=229691484]
+layout_mode = 2
+
+[node name="lbl_gamestate_val" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer" unique_id=1793585745]
+unique_name_in_owner = true
+layout_mode = 2
